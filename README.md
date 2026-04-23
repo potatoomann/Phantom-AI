@@ -2,9 +2,10 @@
 
 PhantomAI is a CLI reconnaissance, enumeration, fuzzing, and reporting tool for authorized web security testing.
 
-It can run in two modes:
-- AI mode with Anthropic for triage, exploit planning, and report writing.
-- Local heuristic mode when no API key is configured, so the core scanner still works.
+It can run in three AI modes:
+- **Anthropic Mode**: Premium triage and exploit planning using Claude 3.5 Sonnet.
+- **Gemini Mode**: Free, high-speed triage using Gemini 2.0 Flash (default fallback).
+- **Heuristic Mode**: Local fallback when no API keys are available, ensuring functionality in air-gapped or credit-limited environments.
 
 ## Setup
 
@@ -91,6 +92,7 @@ python cli.py scan https://target.example --config .\config.yaml
 - `modules/recon.py`: passive subdomain discovery from public sources
 - `modules/enum.py`: common path probing and sensitive endpoint detection
 - `modules/fuzzer.py`: lightweight XSS, SQLi, SSRF, and open redirect probes
+- `modules/owasp_checks.py`: automated checks for OWASP Top 10 (2021 + 2025)
 - `modules/exploit.py`: targeted confirmation using AI or fallback payloads
 - `output/logger.py`: SQLite session logging in `%USERPROFILE%\.phantomai\sessions.db`
 - `output/report.py`: HTML report generation
