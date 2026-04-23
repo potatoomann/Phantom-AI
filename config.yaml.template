@@ -1,0 +1,27 @@
+anthropic_api_key: ""   # or set ANTHROPIC_API_KEY env var
+gemini_api_key: ""      # Get your free key at https://aistudio.google.com/
+
+ai:
+  model: "claude-sonnet-4-6"
+  max_tokens: 4096
+
+scan:
+  timeout: 10            # HTTP request timeout in seconds
+  rate_limit: 20         # max requests per second
+  concurrency: 12
+  max_subdomains: 200
+  max_hosts: 25
+  max_endpoints: 120
+  max_ai_iterations: 5
+  user_agent: "Mozilla/5.0 (compatible; PhantomAI/1.0)"
+  verify_tls: true
+  follow_redirects: false
+  body_sample_size: 4096
+
+proxy:
+  enabled: false
+  url: "http://127.0.0.1:8080"
+
+output:
+  report_dir: "reports"
+  log_level: "info"
